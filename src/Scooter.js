@@ -63,9 +63,6 @@ class Scooter {
   }
 
   rent() {
-    // If isBroken is set to false, and charge is > 20, then set docked to false, and log to the console, “Enjoy the ride!”.
-    // If charge is <= 20, throw an error that messages: “Scooter low on battery, please charge.”
-    // If none of these are applicable, you should throw an error that states that: “Scooter is broken, please send a repair request.”
     if (this._isBroken === false && this._charge > 20){
       this._docked = false 
       console.log("Enjoy the ride!")
@@ -79,16 +76,21 @@ class Scooter {
     }
   }
 
-  // dock(station) {
-
-  //   // Sets the station property of the Scooter to the argument passed in
-
-  //   // If no argument is passed in, you should throw an error: “Docking station required!”
-
-  //   // Set docked to true
-
-  //   // Set user to an empty string
-  // }
+  dock(station) {
+    // Sets the station property of the Scooter to the argument passed in
+    // If no argument is passed in, you should throw an error: “Docking station required!”
+    // Set docked to true
+    // Set user to an empty string
+    this.station = station
+    console.log(station);
+    if (this._station === "") {
+      console.log("Docking station required!")
+      return "Docking station required!"
+    } 
+    this._docked = true
+    this._user = ''
+    
+  }
 
   // recharge() {
 
@@ -121,9 +123,11 @@ class Scooter {
 }
 
 const s1 = new Scooter('Pembroke', 'GG')
+// console.log(s1);
+// console.log(s1.dock());
+console.log(s1.dock('asdasd'));
 console.log(s1);
 
-console.log(s1.rent());
 
 module.exports = Scooter
 
