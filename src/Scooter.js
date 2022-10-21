@@ -8,8 +8,8 @@ class Scooter {
     this._station = station
     // user: populated by the argument of user
     this._user = user
-    this._serial = Math.floor(Math.random() * 10000)
-    this._charge = Math.floor(Math.random() * 1000)
+    this._serial = Math.floor(Math.random() * 1000)
+    this._charge = Math.floor(Math.random() * 100)
     this._isBroken = false
     this._docked = true
   }
@@ -62,15 +62,22 @@ class Scooter {
     this._docked = newDocked
   }
 
-  // rent() {
-  //   // If isBroken is set to false, and charge is > 20, then set docked to false, and log to the console, “Enjoy the ride!”.
-
-  //   // If charge is <= 20, throw an error that messages: “Scooter low on battery, please charge.”
-
-  //   // If none of these are applicable, you should throw an error that states that: “Scooter is broken, please send a repair request.”
-
-  //   return `Thank you ${user} for your rental.`
-  // }
+  rent() {
+    // If isBroken is set to false, and charge is > 20, then set docked to false, and log to the console, “Enjoy the ride!”.
+    // If charge is <= 20, throw an error that messages: “Scooter low on battery, please charge.”
+    // If none of these are applicable, you should throw an error that states that: “Scooter is broken, please send a repair request.”
+    if (this._isBroken === false && this._charge > 20){
+      this._docked = false 
+      console.log("Enjoy the ride!")
+      return "Enjoy the ride!"
+    } else if (this._charge <= 20){
+      console.log("Scooter low on battery, please charge.")
+      return "Scooter low on battery, please charge."
+    } else {
+      console.log("Scooter is broken, please send a repair request.")
+      return "Scooter is broken, please send a repair request."
+    }
+  }
 
   // dock(station) {
 
@@ -116,6 +123,7 @@ class Scooter {
 const s1 = new Scooter('Pembroke', 'GG')
 console.log(s1);
 
+console.log(s1.rent());
 
 module.exports = Scooter
 
