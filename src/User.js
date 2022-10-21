@@ -1,34 +1,37 @@
 class User {
   constructor(username, password, age) {
-    this.username = username
-    this.password = password
-    this.age = age
+    this._username = username
+    this._password = password
+    this._age = age
   }
 
   get username() {
-    return this.username
+    return this._username
   }
 
   set username(newUser) {
-    this.username = newUser
+    this._username = newUser
   }
   
   get password() {
-    return this.password
+    return this._password
   }
 
   set password(newPassword) {
-    this.password = newPassword
+    this._password = newPassword
   }
 
   get age() {
-    return this.age
+    return this._age
   }
 
   set age(newAge) {
-    this.age = newAge
+    this._age = newAge
   }
 
 }
 
+const user1 = new User('GG', 'qwe123', 23)
+user1.age = 44
+console.log(user1.age);
 module.exports = User
