@@ -1,0 +1,34 @@
+Git Setup
+
+You may want to get the diagrams checked by your coach before starting to code.
+
+Create a fork of this repo.
+
+Clone YOUR FORK (not the original Multiverse repo)
+
+git clone https://github.com/<your-gh-username>/scooter-project.git
+
+cd scooter-project
+
+3. Install dependencies (jest)
+
+npm install jest
+
+4. Share your link
+
+Starting Point
+
+Take a look at the starting point.  Here’s a file structure:
+
+├── package-lock.json
+├── package.json
+├── src
+│   ├── Scooter.js
+│   ├── ScooterApp.js
+│   └── User.js
+└── tests
+    ├── Scooter.test.js
+    ├── ScooterApp.test.js
+    └── User.test.js
+
+None of the files are filled out - that’s your job!

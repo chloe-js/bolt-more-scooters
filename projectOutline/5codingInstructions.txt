@@ -1,0 +1,60 @@
+Coding Instructions 📝
+
+Now that we have some diagrams to guide us and a working understanding of the starting point, let’s get to work coding it out! Use the following as a guide, but a few things to note:
+
+The Project Specs should be your guide as you build out your functionality.
+
+The Grading Criteria is your “checklist” we use to grade your project!
+
+The system should remain organized as it was with the starting point:
+
+The /src directory should contain classes with interactions (methods calls) that capture the required functionality
+
+The /tests directory should contain unit tests (including async tests for the charging functionality) which test all scenarios
+
+Tests
+
+The test files are created, but they are currently blank.  To run the tests, run
+
+npm test
+
+Initially, you’ll get many errors and messages like Test suite failed to run since there aren’t any tests written.  You have to write the tests!
+
+If you wish to run a single test file as you build, you can run a test command just for that file by running:
+
+npm run test <NAME_OF_TEST_FILE>
+
+4. In the Grading Criteria, we ask for you to upload a screenshot of the coverage report.  To get a coverage report, run
+
+npm run test:coverage
+
+Classes
+
+You’ll write the three classes, with the associated methods and properties. We’ve given a few hints in the comments in the test files, but you’ll also need a few more!
+
+Starter Code for recharge() and requestRepair() Methods
+
+The recharge() and requaestRepair() methods require that you deliver a message after a certain interval of time. In Javascript, to simulate waiting for a scooter to charge you can make use of the setTimeout call for example in src/Scooter.js:
+
+async charge() {
+    console.log('Starting charge');
+    
+    await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
+    this.charge = 100
+
+    console.log('Charge complete');   
+}
+
+The associated Jest test in tests/Scooter.test.js will look as follows:
+
+test("charge", async () => {
+    const scooter = new Scooter();
+    await scooter.charge(); // we need to wait for the charge!
+    expect(newScooter.charge).toBe(100);
+});
+
+We will cover async/await in future lessons. Use the example above in order to create/complete the last item in the grading criteria’s checklist of the next lesson.
+
+#checkoutTheDocs 🔍
+
+Programiz: JavaScript setInterval()

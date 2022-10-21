@@ -1,0 +1,38 @@
+Scooter Hire System: Object Oriented Programming Challenge
+
+The App
+
+You are a Software Engineer for the city of Baltimore, and you have been asked to design, test, and code the backend for an Electric Scooter Hire app system.  Since the city already has front-end developers, you won’t need to design the UI, just the back-end!
+
+In this challenge, you will be required to
+
+Create the UML Diagrams for the app
+
+Write tests for your Classes, including their properties and methods
+
+Build the system using JavaScript Classes
+
+Learning Objectives
+
+Be able to create a scooter hire app using knowledge of
+
+UMLs
+
+Classes
+
+TDD (including writing tests)
+
+Activate Time and Project Due Date
+
+Today’s Activate time should be used to start the Scooter Project. ⭐️ The final project is due at the end of class.
+
+You should prioritize the following during the Activate portion for today:
+
+Read through the project specifications and make a notes on any details and/or requirements that you need clarity on.
+
+Create your UML Diagrams
+
+Fork and clone the repository from GitHub
+
+Begin coding out the functionality using the project specification, UML diagrams, and coding instructions as your guide.
+

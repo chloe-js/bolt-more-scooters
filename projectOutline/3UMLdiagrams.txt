@@ -1,0 +1,57 @@
+Scooter App - UML Diagrams
+
+With all good applications come good plans. To create the designs, use any of the following tools:
+
+mermaid
+
+Plant Text
+
+Draw.io
+
+Excalidraw
+
+Pen and paper (or crayon!)
+
+TASK: As a first step of this project, you will create and upload the following UML Diagrams per the instructions below:
+
+Use Case diagram
+
+Class Diagram
+
+Sequence Diagram
+
+UML Use Case Diagram
+
+This diagram should show the interactions between:
+
+User Actor
+
+Scooter Actor
+
+Electric Scooter Hire app system
+
+UML Class Diagram
+
+This diagram should show the system’s:
+
+classes, as well as each class’ (1) attributes and (2) methods
+
+inter-relationships between classes
+
+UML Sequence Diagram
+
+This diagram should show the interactions between:
+
+user Actor
+
+Scooter Actor
+
+classes in the system
+
+Assignment extension tasks (bonus points)
+
+Use the PlantUML documentation 🔍 alt/else syntax to extend your UML Sequence diagrams to include the handling of error conditions such as the scooter breaking when the user has started the hire period.
+
+#checkoutTheDocs 🔍
+
+PlantUML Documentation
