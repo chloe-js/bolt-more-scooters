@@ -63,6 +63,9 @@ class Scooter {
   }
 
   rent() {
+// If isBroken is set to false, and charge is > 20, then set docked to false, and log to the console, “Enjoy the ride!”.
+// If charge is <= 20, throw an error that messages: “Scooter low on battery, please charge.”
+// If none of these are applicable, you should throw an error that states that: “Scooter is broken, please send a repair request.”
     if (this._isBroken === false && this._charge > 20){
       this._docked = false 
       console.log("Enjoy the ride!")
@@ -87,32 +90,38 @@ class Scooter {
       console.log("Docking station required!")
       return "Docking station required!"
     } 
-    this._docked = true
-    this._user = ''
+    this.docked = true
+    this.user = ''
     
   }
 
-  // recharge() {
+  // NOTE: Section 5 has starter code for a setInterval timer that can be used with the recharge() and requestRepair() methods.
+  async recharge() {
+  // This method should update the Scooter’s charge to 100.
+    console.log('Starting charge');
+    console.log(this.charge);
 
-  //   // This method should update the Scooter’s charge to 100.
-  // }
+    await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
+    
+    this.charge = 100
+    console.log(this.charge);
 
-  // requestRepair() {
+    console.log('Charge complete');
+  }
 
-  //   // Uses a setInterval timer to log a message that the repair has been complete
+  async requestRepair() {
+    // Uses a setInterval timer to log a message that the repair has been complete
+    // Sets isBroken to false after the repair has been complete.
+    console.log('Starting repair');
+    console.log(this.isBroken);
 
-  //   // Sets isBroken to false after the repair has been complete.
-  // }
+    await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
+    
+    this.isBroken = false
+    console.log(this.isBroken);
 
-  // // NOTE: Section 5 has starter code for a setInterval timer that can be used with the recharge() and requestRepair() methods.
-  // async charge() {
-  //   console.log('Starting charge');
-
-  //   await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
-  //   this.charge = 100
-
-  //   console.log('Charge complete');
-  // }
+    console.log('Charge complete');
+  }
 
   // // test("charge", async () => {
   // //   const scooter = new Scooter();
@@ -122,11 +131,13 @@ class Scooter {
 
 }
 
-const s1 = new Scooter('Pembroke', 'GG')
-// console.log(s1);
-// console.log(s1.dock());
-console.log(s1.dock('asdasd'));
+const s1 = new Scooter('Pembroke', 'User')
 console.log(s1);
+// console.log(s1.dock());
+// console.log(s1.recharge());
+// console.log(s1.requestRepair());
+
+
 
 
 module.exports = Scooter
