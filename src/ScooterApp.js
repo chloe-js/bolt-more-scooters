@@ -11,23 +11,24 @@ class ScooterApp {
       Manhattan: [],
       Brooklyn: [],
       Queens: [],
-      Bronx: [    
-        {
-        _station: 'Bronx',
-        _user: 'Berry',
-        _serial: 987,
-        _charge: 64,
-        _isBroken: false,
-        _docked: true
-      },
-      {
-        _station: 'Bronx',
-        _user: 'Berry',
-        _serial: 222,
-        _charge: 64,
-        _isBroken: false,
-        _docked: true
-      }],
+      Bronx: [
+        //   {
+        //   _station: 'Bronx',
+        //   _user: 'Berry',
+        //   _serial: 987,
+        //   _charge: 64,
+        //   _isBroken: false,
+        //   _docked: true
+        // },
+        // {
+        //   _station: 'Bronx',
+        //   _user: 'Berry',
+        //   _serial: 222,
+        //   _charge: 64,
+        //   _isBroken: false,
+        //   _docked: true
+        // }
+      ],
       StatenIsland: []
     }
     // registeredUsers: populated by an empty object or array
@@ -57,9 +58,10 @@ class ScooterApp {
     const usernameCheck = Object.keys(this.registeredUsers).includes(user.username)
 
     if (user.age <= 17) {
-      console.log("too young to register!");
+      return "too young to register!"
     } else if (usernameCheck) {
       console.log("already registered!")
+      return "already registered!"
     } else {
       const newUser = user.username;
       this._registeredUsers[newUser] = { password: user.password, age: user.age, loggedIn: false, accountChange: 0 };
@@ -87,12 +89,10 @@ class ScooterApp {
     // console.log(username, password);
     console.log(this.registeredUsers[username], ' --LOG')
     if (this.registeredUsers[username] && this.registeredUsers[username].password === password) {
-      console.log("logging in....");
       this.registeredUsers[username].loggedIn = true;
-      setTimeout(() => {
-        console.log(`You are now logged in, welcome ${username}`);
-        console.log(this.registeredUsers[username]);
-      }, 1000)
+      console.log(`You are now logged in, welcome ${username}`);
+      console.log(this.registeredUsers[username]);
+      return "logged in successfully";
       // If the previous checks pass, mark the correct user in the registeredUsers object loggedIn property to true.
       // Log to the console that the user has logged in successfully.
     } else {
@@ -111,11 +111,11 @@ class ScooterApp {
     // console.log(this.stations);
   }
 
-  RemoveScooter(scooterToRemove) {
+  removeScooter(scooterToRemove) {
     // NOTE: scooterToRemove is a Scooter object
     // Identify the scooterToRemove’s value for serial number 
     const serialRemove = scooterToRemove.serial
-    if(!serialRemove){
+    if (!serialRemove) {
       // Throw an error if the scooter serial number is not located - this means that the scooterToRemove object has not previously been added.
       const serialErr = new Error("scooter serial number is not located.")
       throw serialErr;
@@ -125,7 +125,7 @@ class ScooterApp {
     // BONUS: Use this serial number to remove the Scooter object from the correct location list
     // NOTE: You’ll need to do some digging here into nested objects and/or lists
     this.stations[scooterToRemove.station].forEach((v, i) => {
-      if(v.serial === serialRemove){
+      if (v.serial === serialRemove) {
         this.stations[scooterToRemove.station].splice(i)
         // Log to the console that the scooter has successfully been removed
         console.log("scooter has successfully been removed");
@@ -156,8 +156,10 @@ const session1 = new ScooterApp()
 // console.log(session1.register(user4));
 // console.log(session1.register(user5));
 const sco = new Scooter('Rochford', 'Berry')
-session1.addScooter('Bronx', sco);
-// session1.RemoveScooter(sco)
+const scoo = new Scooter('Midtown', 'Larry')
+session1.addScooter('Manhattan', scoo);
+console.log(session1.stations)
+// session1.removeScooter(sco)
 // console.log(sco);
 // console.log(sco.serial);
 
