@@ -5,8 +5,8 @@ class Scooter {
     this._station = station
     // user: populated by the argument of user
     this._user = user
-    this._serial = Math.floor(Math.random() * 1000)
-    this._charge = Math.floor(Math.random() * 100)
+    this._serial = Math.floor(Math.random() * 1000 + 1)
+    this._charge = Math.floor(Math.random() * 100 + 1)
     this._isBroken = false
     this._docked = true
   }
@@ -60,14 +60,14 @@ class Scooter {
   }
 
   rent() {
-// If isBroken is set to false, and charge is > 20, then set docked to false, and log to the console, “Enjoy the ride!”.
-// If charge is <= 20, throw an error that messages: “Scooter low on battery, please charge.”
-// If none of these are applicable, you should throw an error that states that: “Scooter is broken, please send a repair request.”
-    if (this._isBroken === false && this._charge > 20){
-      this._docked = false 
+    // If isBroken is set to false, and charge is > 20, then set docked to false, and log to the console, “Enjoy the ride!”.
+    // If charge is <= 20, throw an error that messages: “Scooter low on battery, please charge.”
+    // If none of these are applicable, you should throw an error that states that: “Scooter is broken, please send a repair request.”
+    if (this._isBroken === false && this._charge > 20) {
+      this._docked = false
       console.log("Enjoy the ride!")
       return "Enjoy the ride!"
-    } else if (this._charge <= 20){
+    } else if (this._isBroken === false && this._charge <= 20) {
       console.log("Scooter low on battery, please charge.")
       return "Scooter low on battery, please charge."
     } else {
@@ -84,22 +84,22 @@ class Scooter {
     this.station = station
     console.log(station);
     if (this._station === "") {
-      console.log("Docking station required!")
-      return "Docking station required!"
-    } 
+      // throw new Error("Docking station required!");
+      return "Docking station required!";
+    }
     this.docked = true
-    this.user = ''
-    
+    this.user = ""
+
   }
 
   // NOTE: Section 5 has starter code for a setInterval timer that can be used with the recharge() and requestRepair() methods.
   async recharge() {
-  // This method should update the Scooter’s charge to 100.
+    // This method should update the Scooter’s charge to 100.
     console.log('Starting charge');
     console.log(this.charge);
 
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
-    
+
     this.charge = 100
     console.log(this.charge);
 
@@ -113,23 +113,16 @@ class Scooter {
     console.log(this.isBroken);
 
     await new Promise(resolve => setTimeout(resolve, 2000)); // wait 2 seconds
-    
+
     this.isBroken = false
     console.log(this.isBroken);
-
     console.log('Charge complete');
   }
-
-  // // test("charge", async () => {
-  // //   const scooter = new Scooter();
-  // //   await scooter.charge(); // we need to wait for the charge!
-  // //   expect(newScooter.charge).toBe(100);
-  // // });
-
 }
 
-// const s1 = new Scooter('Pembroke', 'User')
-// console.log(s1);
+const s1 = new Scooter('Pembroke', 'User')
+console.log((s1.dock('')))
+console.log(s1);
 // console.log(s1.dock());
 // console.log(s1.recharge());
 // console.log(s1.requestRepair());
