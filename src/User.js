@@ -31,7 +31,6 @@ class User {
 
 }
 
-const user1 = new User('GG', 'qwe123', 23)
-user1.age = 44
-console.log(user1.age);
+// console.log(user1);
+
 module.exports = User

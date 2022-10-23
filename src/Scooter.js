@@ -1,8 +1,5 @@
-// Station the scooter is checked out from //
-
-// User that checked out the Scooter //
+// This class represents the individual scooters that users will rent from stations.
 class Scooter {
-  // This class represents the individual scooters that users will rent from stations.
   constructor(station, user) {
     // station: populated by the argument of station
     this._station = station
@@ -131,8 +128,8 @@ class Scooter {
 
 }
 
-const s1 = new Scooter('Pembroke', 'User')
-console.log(s1);
+// const s1 = new Scooter('Pembroke', 'User')
+// console.log(s1);
 // console.log(s1.dock());
 // console.log(s1.recharge());
 // console.log(s1.requestRepair());
