@@ -1,18 +1,32 @@
-UML Class Diagram
+classDiagram
+    ScooterApp "1" <--> "*"Scooter
+    ScooterApp "1" <--> "*" User
+    Scooter "1" <--> "1" User
+class Scooter {
+    -Obj Station
+    -Obj User
+    -int Serial
+    -int Charge
+    -bool IsBroken
+    -bool IsDocked
+    +Rent()
+    +Dock(Station)
+    +Recharge()
+    +RequestRepair()
+}
 
-This diagram should show the system’s:
+class User {
+    -str Username
+    -str Password
+    -int Age
+}
 
-classes, as well as each class’ (1) attributes and (2) methods
-
-inter-relationships between classes
-
-
-UML Sequence Diagram
-
-This diagram should show the interactions between:
-
-user Actor
-
-Scooter Actor
-
-classes in the system
+class ScooterApp {
+    -Array Obj Stations
+    -Array Users
+    -Array Obj Sessions
+    +Register(User)
+    +Login(Username, Password)
+    +AddScooter(Location)
+    +RemoveScooter(Scooter Obj)
+}
